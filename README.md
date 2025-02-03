@@ -48,3 +48,68 @@ contract BurnableBEP20 is BEP20Burnable, ServicePayer {
         _mint(_msgSender(), initialBalance_);
     }
 }
+
+🔬 Testing
+
+To run the tests, use Hardhat:
+
+npm install
+npx hardhat test
+
+Example test case in /tests/test_burnable.js:
+
+const { expect } = require("chai");
+
+describe("BurnableBEP20 Token", function () {
+    let owner, user, token;
+
+    beforeEach(async function () {
+        const BurnableBEP20 = await ethers.getContractFactory("BurnableBEP20");
+        token = await BurnableBEP20.deploy("BurnableToken", "BTK", 18, 1000000, owner.address);
+        [owner, user] = await ethers.getSigners();
+    });
+
+    it("Should allow token burning", async function () {
+        await token.connect(owner).burn(500);
+        expect(await token.totalSupply()).to.equal(999500);
+    });
+});
+
+🛠 Deployment Instructions
+
+To deploy the contract using Hardhat, run:
+
+npx hardhat run scripts/deploy.js --network bsc
+
+Modify /scripts/deploy.js to include:
+
+async function main() {
+    const BurnableBEP20 = await ethers.getContractFactory("BurnableBEP20");
+    const token = await BurnableBEP20.deploy("BurnableToken", "BTK", 18, 1000000, "0xFEE_RECEIVER");
+
+    console.log("BurnableBEP20 deployed to:", token.address);
+}
+
+📑 Audit Report
+
+This contract has undergone a security audit. You can find the audit details in audits/security-audit.pdf.
+
+🔒 Security Measures
+	•	Prevents overflows/underflows with Solidity 0.8.x
+	•	Blacklist protection can be implemented if needed.
+	•	Ownership can be renounced to decentralize control.
+
+Find more details in docs/security.md.
+
+📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+## **GitHub Upload Instructions**
+### **1️⃣ Initialize Git Repository**
+```sh
+git init
+git add .
+git commit -m "Initial commit - Burnable BEP20 token"
