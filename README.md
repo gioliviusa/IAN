@@ -31,3 +31,20 @@ This repository contains the **Burnable BEP20 token** smart contract, allowing t
 
 ## 📖 **Contract Code**
 The contract source code is located in `/contracts/BurnableBEP20.sol`.
+
+### **🛠 Deployment Details**
+```solidity
+contract BurnableBEP20 is BEP20Burnable, ServicePayer {
+    constructor(
+        string memory name_,
+        string memory symbol_,
+        uint8 decimals_,
+        uint256 initialBalance_,
+        address payable feeReceiver_
+    ) payable BEP20(name_, symbol_) ServicePayer(feeReceiver_, "BurnableBEP20") {
+        require(initialBalance_ > 0, "BurnableBEP20: supply cannot be zero");
+
+        _setupDecimals(decimals_);
+        _mint(_msgSender(), initialBalance_);
+    }
+}
