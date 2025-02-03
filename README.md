@@ -1,4 +1,4 @@
-# IAN. 
+# IAN
 
 # Burnable BEP20 Token
 
