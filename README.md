@@ -106,10 +106,3 @@ Find more details in docs/security.md.
 This project is licensed under the MIT License.
 
 ---
-
-## **GitHub Upload Instructions**
-### **1️⃣ Initialize Git Repository**
-```sh
-git init
-git add .
-git commit -m "Initial commit - Burnable BEP20 token"
