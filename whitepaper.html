@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAN - Investment Token</title>
+    <style>
+        :root {
+            --primary: #2b2d42;
+            --secondary: #8d99ae;
+            --accent: #ef233c;
+            --light: #edf2f4;
+            --dark: #1a1a2e;
+            --success: #06d6a0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 0.5rem 0;
+        }
+        
+        .btn:hover {
+            background-color: var(--dark);
+            transform: translateY(-2px);
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .link-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .link-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .link-list {
+            list-style: none;
+        }
+        
+        .link-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .link-list a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .link-list a:hover {
+            color: var(--accent);
+        }
+        
+        .link-list a::before {
+            content: "→";
+            color: var(--accent);
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .comparison div {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .comparison h3 {
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .disclaimer {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">IAN</div>
+            <div class="tagline">INVESTMENT TOKEN</div>
+            <div class="contact-info">
+                <a href="https://www.ian.finance" class="btn">Visit Website</a>
+                <a href="mailto:ian@ian.finance" class="btn">Email Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="networks">
+            <h2>Networks</h2>
+            <div class="links-grid">
+                <div class="link-card">
+                    <h3>Ethereum</h3>
+                    <ul class="link-list">
+                        <li><a href="https://etherscan.io/token/0xe780d880e9da4a14814dd72ee19364b4df7ca0da#tokenInfo" target="_blank">Etherscan</a></li>
+                        <li><a href="https://app.uniswap.org/#/swap?inputCurrency=0xe780d880e9da4a14814dd72ee19364b4df7ca0da" target="_blank">Uniswap</a></li>
+                    </ul>
+                    <p>ERC20: 0xe780D880E9DA4a14814dd72EE19364b4df7CA0da</p>
+                </div>
+                <div class="link-card">
+                    <h3>Binance Smart Chain</h3>
+                    <ul class="link-list">
+                        <li><a href="https://bscscan.com/token/0x07d5bf841beb877c9bE550B79cb0d49e4e091Dec" target="_blank">BscScan</a></li>
+                        <li><a href="https://pancakeswap.finance/swap?outputCurrency=0x07d5bf841beb877c9bE550B79cb0d49e4e091Dec" target="_blank">PancakeSwap</a></li>
+                    </ul>
+                    <p>BEP20: 0x07d5bf841beb877c9bE550B79cb0d49e4e091Dec</p>
+                </div>
+                <div class="link-card">
+                    <h3>Polygon</h3>
+                    <ul class="link-list">
+                        <li><a href="https://polygonscan.com/token/0x07d5bf841beb877c9bE550B79cb0d49e4e091Dec" target="_blank">PolygonScan</a></li>
+                        <li><a href="https://app.sushi.com/swap?inputCurrency=&outputCurrency=0x07d5bf841beb877c9bE550B79cb0d49e4e091Dec" target="_blank">SushiSwap</a></li>
+                    </ul>
+                </div>
+                <div class="link-card">
+                    <h3>Optimistic Ethereum</h3>
+                    <ul class="link-list">
+                        <li><a href="https://optimistic.etherscan.io/token/0xfff77187d01fd533c7219c516aebb1a790f57f8e?a=0xf480B17bcEe6a4b142544e8ED9f41C6953FF69E1" target="_blank">Optimistic Etherscan</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About IAN</h2>
+            <p>The 2008 Financial Crisis led people to start doubting the fiat monetary system, as speculation grew towards its trustworthiness. This climate was when Bitcoin's creator Satoshi Nakamoto lit his fuse by making it possible for users of this new peer-to-peer payment network that did not require going through traditional financial channels like banks or credit card companies to trade freely without any intermediaries getting involved in between them.</p>
+            
+            <h3>Key Features</h3>
+            <div class="links-grid">
+                <div class="link-card">
+                    <h3>Private internet</h3>
+                    <p>A Ethereum app doesn't require your personal information. A crypto-economy on Ethereum is based on value, not surveillance.</p>
+                </div>
+                <div class="link-card">
+                    <h3>Banking for everyone</h3>
+                    <p>Financial services aren't accessible to everyone. A good internet connection is all you need to access Ethereum and its lending, borrowing, and savings products.</p>
+                </div>
+                <div class="link-card">
+                    <h3>A peer-to-peer network</h3>
+                    <p>Ethereum allows you to move money, or make agreements, directly with someone else. You don't need to go through intermediary companies.</p>
+                </div>
+                <div class="link-card">
+                    <h3>Censorship-resistant</h3>
+                    <p>Ethereum is not controlled by any government or company. This decentralization makes it nearly impossible for anyone to stop you from receiving payments or using services on Ethereum.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="introduction">
+            <h2>INTRODUCTION</h2>
+            <p>Ian has launched a new project that will provide an easy and accessible way to use cryptocurrency. The cryptocurrency ecosystem of Ethereum (ETH) and Binance smart chain (BNB) is available to anyone with access to a computer or cell phone, which means it's really easy for people in developing countries or those without bank accounts or credit cards to use this system. Ian was created so that all people have equal access to financial services and data-friendly technology. It's also designed as a community-built solution with thousands of apps already built on top of its platform. This allows users from around the world who speak different languages and have varying levels of technical knowledge about how computers work.</p>
+            
+            <p>Ian brings Ethereum Mixer services to the masses, making it easy and safe for people to use their money anywhere in the world without worrying about theft or other forms of corruption. Ian is built around a set of core values that were created by people from all over the world with different backgrounds and experiences who joined forces with one big goal.</p>
+        </section>
+
+        <section id="token-system">
+            <h2>Token System</h2>
+            <p>The key point to understand is that a currency, or token system, is a database with one operation: subtract X units from A and give X units to B, with the provision that (1) A had at least X units before the transaction and (2) the transaction is approved by A. All that it takes to implement a token system is to implement this logic into a contract. An alternative to the present financial system that is global and open. You can use this collection of products to borrow, save, invest, trade, and more. There are no licensing fees for this technology, so anybody can use it.</p>
+            
+            <h3>Applications</h3>
+            <div class="links-grid">
+                <div class="link-card">
+                    <h3>Open Data</h3>
+                    <p>P2P exchange of data, titles, NFTs</p>
+                </div>
+                <div class="link-card">
+                    <h3>DeFi Development</h3>
+                    <p>The development of technologies and investments of DeFi.</p>
+                </div>
+                <div class="link-card">
+                    <h3>Smart Contracts</h3>
+                    <p>Automated, trustless agreements</p>
+                </div>
+                <div class="link-card">
+                    <h3>Various Use Cases</h3>
+                    <p>Investment, Pool liquidity, Data, Real estate, Life insurance, Last will, Lending</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="defi">
+            <h2>What can you do with DeFi and IAN?</h2>
+            <p>There's a decentralized alternative to most financial services. But Ethereum also creates opportunities for creating financial products that are completely new. This is an ever-growing list.</p>
+            
+            <div class="links-grid">
+                <div class="link-card">
+                    <ul class="link-list">
+                        <li>Send money around the globe</li>
+                        <li>Access stable currencies</li>
+                        <li>Borrow funds with collateral</li>
+                        <li>Borrow without collateral</li>
+                        <li>Start crypto savings</li>
+                    </ul>
+                </div>
+                <div class="link-card">
+                    <ul class="link-list">
+                        <li>Trade tokens</li>
+                        <li>Grow your portfolio</li>
+                        <li>Fund your ideas</li>
+                        <li>Buy insurance</li>
+                        <li>Buy Real estate</li>
+                        <li>Manage your portfolio</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p>These are applications that focus on building out financial services using cryptocurrencies. They offer the likes of lending, borrowing, earning interest, and private payments – no personal data required.</p>
+        </section>
+
+        <section id="comparison">
+            <h2>DeFi vs Traditional Finance</h2>
+            <p>One of the best ways to see the potential of DeFi is to understand the problems that exist today.</p>
+            
+            <div class="comparison">
+                <div>
+                    <h3>DeFi</h3>
+                    <ul class="link-list">
+                        <li>You hold your money.</li>
+                        <li>You control where your money goes and how it's spent.</li>
+                        <li>Transfers of funds happen in minutes.</li>
+                        <li>Transaction activity is pseudonymous.</li>
+                        <li>DeFi is open to anyone.</li>
+                        <li>The markets are always open.</li>
+                        <li>It's built on transparency – anyone can look at a product's data and inspect how the system works.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Traditional Finance</h3>
+                    <ul class="link-list">
+                        <li>Your money is held by companies.</li>
+                        <li>You have to trust companies not to mismanage your money, like lend to risky borrowers.</li>
+                        <li>Payments can take days due to manual processes.</li>
+                        <li>Financial activity is tightly coupled with your identity.</li>
+                        <li>You must apply to use financial services.</li>
+                        <li>Markets close because employees need breaks.</li>
+                        <li>Financial institutions are closed books: you can't ask to see their loan history, a record of their managed assets, and so on.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="blockchain">
+            <h2>Blockchain Technology</h2>
+            <p>A blockchain is a growing list of records, called blocks, that are linked together using cryptography. Each block contains a cryptographic hash of the previous block, a timestamp, and transaction data (generally represented as a Merkle tree). The timestamp proves that the transaction data existed when the block was published in order to get into its hash. As blocks each contain information about the block previous to it, they form a chain, with each additional block reinforcing the ones before it. Therefore, blockchains are resistant to modification of their data because once recorded, the data in any given block cannot be altered retroactively without altering all subsequent blocks.</p>
+            
+            <p>IAN runs inside the Ethereum blockchain.</p>
+        </section>
+
+        <section id="stake">
+            <h2>Why Stake IAN?</h2>
+            <p>When I stake, I am in a position where after ending my stake period, not only will the contract return to me the IAN that I put in, but as well, the contract will return additional IAN based on an interest rate and any bonus payouts included in the contract.</p>
+            
+            <p>Smart contracts allow you to commit your IAN ETH and any other ERC20 for a predetermined period of time by using the IAN Staking function. As of right now, the time frame is one day. For instance, I might choose to stake 10,000 IAN for 10 days. The IAN will not be available during this period, but at the end of 10 days I will end my stake and receive my 10,000 + reward.</p>
+        </section>
+
+        <section id="social">
+            <h2>Connect With Us</h2>
+            <div class="social-links">
+                <a href="https://www.instagram.com/dataiantoken/" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/dataIANtoken/" target="_blank">Facebook</a>
+                <a href="https://twitter.com/dataiantoken/" target="_blank">Twitter</a>
+                <a href="https://www.reddit.com/r/IANtoken/" target="_blank">Reddit</a>
+                <a href="https://t.me/joinchat/zgyWeoB6cBYxZmRh" target="_blank">Telegram</a>
+                <a href="https://discord.gg/d9FGKE7F" target="_blank">Discord</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>IAN - INVESTMENT TOKEN</p>
+            <p><a href="https://www.ian.finance" style="color: white;">https://www.ian.finance</a> | <a href="mailto:ian@ian.finance" style="color: white;">ian@ian.finance</a></p>
+            
+            <div class="disclaimer">
+                <p>FOR INFORMATIONAL PURPOSES ONLY</p>
+                <p>Nothing in this paper constitutes an offer or solicitation to sell shares in IAN or any related company.</p>
+                <p>DISCLAIMER: This paper is for general information purposes only. It does not constitute investment advice or a recommendation or solicitation to buy or sell any investment and should not be used in the evaluation of the merits of making any investment decision.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
