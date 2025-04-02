@@ -1,4 +1,8 @@
 # IAN
+[ian.finance](https://www.ian.finance/)
+
+white paper
+https://gioliviusa.github.io/IAN/
 
 # Burnable BEP20 Token
 
